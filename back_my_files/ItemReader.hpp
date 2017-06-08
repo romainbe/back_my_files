@@ -6,15 +6,16 @@ namespace BMF
 
 class Item;
     
-template <typename ITEM_TYPE>
 class ItemReader
 {
 public:
     ItemReader() = default;
     virtual ~ItemReader() = default;
-    
-    typedef ITEM_TYPE   type;
-    virtual void read_item(ITEM_TYPE& item) = 0;
+
+    virtual void read_item(Item& item) final;
+
+private:
+    virtual void read_item_(Item& item) = 0;
 };
 
 }

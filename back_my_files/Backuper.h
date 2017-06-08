@@ -7,6 +7,7 @@
 
 #include "Item.h"
 #include "IFileSystem.h"
+#include "ItemReaderFactory.hpp"
 
 namespace BMF
 {
@@ -37,6 +38,7 @@ private:
 private:
     const std::string   _backup_dir;
     Items  _items_to_backup;
+    ItemReaderFactory   _item_reader_factory;
 };
 
 }

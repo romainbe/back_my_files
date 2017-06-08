@@ -34,12 +34,8 @@ void BMF::Backuper::run()
     for (const auto& item : _items_to_backup)
     {
         const auto& item_type = item->type();
-        if (item_type == "file")
-        {
-            BMF::FileReader f;
-            //f.read_item(*dynamic_cast<BMF::File*>(item.get()));
-            f.read_item(*dynamic_cast<BMF::FileReader::type*>(item.get()));
-        }
+        auto f = _item_reader_factory.create_reader(item_type);
+        f->read_item(*item.get());
     }
         
 }

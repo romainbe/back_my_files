@@ -8,13 +8,14 @@ namespace BMF
 {
 
 class FileReader final
-    : public BMF::ItemReader<BMF::File>
+    : public BMF::ItemReader
 {
 public:
     FileReader();
     ~FileReader();
-    
-    void read_item(BMF::File& item) override;
+
+private:
+    void read_item_(BMF::Item& item) override;
 };
 
 }
