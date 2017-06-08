@@ -1,4 +1,5 @@
 #include "Backuper.h"
+#include "FileReader.h"
 
 BMF::Backuper::Backuper(const std::string& backup_dir
         , BMF::IFileSystem& fs
@@ -32,7 +33,13 @@ void BMF::Backuper::run()
     
     for (const auto& item : _items_to_backup)
     {
-        
+        const auto& item_type = item->type();
+        if (item_type == "file")
+        {
+            BMF::FileReader f;
+            //f.read_item(*dynamic_cast<BMF::File*>(item.get()));
+            f.read_item(*dynamic_cast<BMF::FileReader::type*>(item.get()));
+        }
     }
         
 }

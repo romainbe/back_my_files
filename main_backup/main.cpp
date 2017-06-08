@@ -8,7 +8,7 @@ int main(int argc, char **argv)
 {
     // avoid compilation warning
     (void)argc; (void)argv;
-    
+
     BMF::Backuper::Items  items;
     items.push_back(
         std::make_unique<BMF::File>
@@ -17,8 +17,7 @@ int main(int argc, char **argv)
                 {"directory", "/home/r0m1/Travail/Code/c++/backup"}
             }}
         ));
-    
-    
+
     BMF::FileSystem fs;
     BMF::Backuper    bmf{
         "/home/r0m1/Travail/Code/c++/backup/backups",
